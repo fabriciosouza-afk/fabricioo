@@ -1,265 +1,94 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agricultura Sustentável no Mundo</title>
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: Arial, sans-serif;
-}
-
-body{
-    background:#f4f7f1;
-    color:#333;
-    line-height:1.6;
-}
-
-header{
-    background:linear-gradient(rgba(0,100,0,0.7), rgba(0,100,0,0.7)),
-    url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1400&q=80');
-    background-size:cover;
-    background-position:center;
-    color:white;
-    text-align:center;
-    padding:100px 20px;
-}
-
-header h1{
-    font-size:3rem;
-}
-
-header p{
-    margin-top:15px;
-    font-size:1.2rem;
-}
-
-nav{
-    background:#2e7d32;
-    padding:15px;
-    text-align:center;
-    position:sticky;
-    top:0;
-    z-index:100;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    margin:0 15px;
-    font-weight:bold;
-}
-
-section{
-    padding:60px 10%;
-}
-
-h2{
-    color:#2e7d32;
-    margin-bottom:20px;
-}
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
-
-.card{
-    background:white;
-    padding:25px;
-    border-radius:12px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.1);
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:translateY(-5px);
-}
-
-.stats{
-    display:flex;
-    justify-content:center;
-    gap:40px;
-    flex-wrap:wrap;
-    text-align:center;
-}
-
-.stat{
-    background:white;
-    padding:25px;
-    border-radius:12px;
-    min-width:180px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
-}
-
-.number{
-    font-size:2rem;
-    color:#2e7d32;
-    font-weight:bold;
-}
-
-button{
-    background:#2e7d32;
-    color:white;
-    border:none;
-    padding:12px 20px;
-    border-radius:8px;
-    cursor:pointer;
-    margin-top:15px;
-}
-
-button:hover{
-    background:#1b5e20;
-}
-
-#factBox{
-    margin-top:20px;
-    padding:20px;
-    background:white;
-    border-left:5px solid #2e7d32;
-    border-radius:8px;
-}
-
-footer{
-    background:#1b5e20;
-    color:white;
-    text-align:center;
-    padding:20px;
-}
-</style>
-</head>
-<body>
-
-<header>
-    <h1>🌱 Agricultura Sustentável no Mundo</h1>
-    <p>Produzindo alimentos de forma responsável para garantir o futuro das próximas gerações.</p>
-</header>
-
-<nav>
-    <a href="#sobre">Sobre</a>
-    <a href="#praticas">Práticas</a>
-    <a href="#impacto">Impacto</a>
-    <a href="#curiosidades">Curiosidades</a>
-</nav>
-
-<section id="sobre">
-    <h2>O que é Agricultura Sustentável?</h2>
-    <p>
-        A agricultura sustentável busca produzir alimentos, fibras e outros produtos agrícolas
-        preservando os recursos naturais, reduzindo impactos ambientais e promovendo o bem-estar
-        social e econômico das comunidades rurais.
-    </p>
-</section>
-
-<section id="praticas">
-    <h2>Principais Práticas Sustentáveis</h2>
-
-    <div class="cards">
-        <div class="card">
-            <h3>🌾 Rotação de Culturas</h3>
-            <p>Alternância de diferentes culturas para preservar a fertilidade do solo e reduzir pragas.</p>
-        </div>
-
-        <div class="card">
-            <h3>💧 Uso Eficiente da Água</h3>
-            <p>Sistemas de irrigação inteligentes diminuem desperdícios e aumentam a produtividade.</p>
-        </div>
-
-        <div class="card">
-            <h3>🌳 Agroflorestas</h3>
-            <p>Integração entre árvores, plantações e biodiversidade para melhorar o equilíbrio ecológico.</p>
-        </div>
-
-        <div class="card">
-            <h3>♻️ Compostagem</h3>
-            <p>Transformação de resíduos orgânicos em adubo natural para enriquecer o solo.</p>
-        </div>
-    </div>
-</section>
-
-<section id="impacto">
-    <h2>Impacto Global</h2>
-
-    <div class="stats">
-        <div class="stat">
-            <div class="number" id="num1">0</div>
-            <p>Países com iniciativas sustentáveis</p>
-        </div>
-
-        <div class="stat">
-            <div class="number" id="num2">0</div>
-            <p>Milhões de hectares recuperados</p>
-        </div>
-
-        <div class="stat">
-            <div class="number" id="num3">0</div>
-            <p>% de redução de emissões</p>
-        </div>
-    </div>
-</section>
-
-<section id="curiosidades">
-    <h2>Curiosidades</h2>
-
-    <p>Clique no botão para descobrir uma curiosidade sobre agricultura sustentável.</p>
-
-    <button onclick="mostrarCuriosidade()">
-        Mostrar Curiosidade
-    </button>
-
-    <div id="factBox">
-        Clique no botão acima.
-    </div>
-</section>
-
-<footer>
-    <p>© 2026 - Agricultura Sustentável no Mundo | Educação Ambiental</p>
-</footer>
-
-<script>
-// Animação dos números
-function animarNumero(id, valorFinal){
-    let valor = 0;
-
-    let intervalo = setInterval(() => {
-        valor += Math.ceil(valorFinal / 50);
-
-        if(valor >= valorFinal){
-            valor = valorFinal;
-            clearInterval(intervalo);
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <style>
+        header {
+            background-color: #183C63;
+            color: #FFFFFF;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 16px;
         }
 
-        document.getElementById(id).textContent = valor;
-    }, 40);
-}
+        main {
+            background-color: #FFFFFF;
+            color: #183C63;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+        article{
+            display: flex;
+        }
 
-window.onload = () => {
-    animarNumero("num1", 120);
-    animarNumero("num2", 450);
-    animarNumero("num3", 35);
-};
+        img {
+            width: 80px;
+            height: 80px;
+        }
 
-// Curiosidades
-const curiosidades = [
-    "A rotação de culturas pode reduzir naturalmente a incidência de pragas agrícolas.",
-    "A agricultura sustentável ajuda a conservar a biodiversidade local.",
-    "Sistemas agroflorestais podem capturar grandes quantidades de carbono da atmosfera.",
-    "O uso eficiente da água pode economizar até 50% dos recursos hídricos em algumas regiões.",
-    "A compostagem reduz resíduos e melhora a qualidade do solo."
-];
+        .artigo-autor {
+            font-weight: bold;
+        }
+    </style>
+</head>
 
-function mostrarCuriosidade(){
-    const indice = Math.floor(Math.random() * curiosidades.length);
+<body>
+    <header>
+        <h1>Meu blog tech</h1>
+        <p>Vou compartilhar conhecimentos sobre tecnologia e programação</p>
+    </header>
+    <main>
+        <article>
+            <img src="imagem-blog.png"
+                alt="Logotipo conceitual de tecnologia e educação: um livro aberto de onde emerge um cérebro digital brilhante, cercado por ícones de Wi-Fi, circuitos e lâmpada de ideia. Cores em tons de azul e branco.">
+            <div>
+                <h2>Meu primeiro post</h2>
+                <p class="artigo-autor">Por: Marcelo Paludetto</p>
+                <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar dicas de programação e curiosidades da área de
+                    tecnologia.</p>
+                <button>❤️ <span>0</span></button>
+                <button>👍 <span>0</span></button>
+            </div>
+        </article>
+        <article>
+            <img src="imagem-blog.png"
+                alt="Logotipo conceitual de tecnologia e educação: um livro aberto de onde emerge um cérebro digital brilhante, cercado por ícones de Wi-Fi, circuitos e lâmpada de ideia. Cores em tons de azul e branco.">
+            <div>
+                <h2>Meu segundo post</h2>
+                <p class="artigo-autor">Por: Marcelo Paludetto</p>
+                <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar dicas de programação e curiosidades da área de
+                    tecnologia.</p>
+                <button>❤️ <span>0</span></button>
+                <button>👍 <span>0</span></button>
+            </div>
+        </article>
+    </main>
+</body>
+<script>
+    const botoes = document.querySelectorAll("button");
 
-    document.getElementById("factBox").innerHTML =
-        "🌿 " + curiosidades[indice];
-}
+    botoes.forEach(function (botao) {
+        let curtiu = false;
+        botao.addEventListener("click", botaoClicado);
+        function botaoClicado() {
+            console.log("fui clicado");
+            let texto = botao.querySelector("span");
+            if (curtiu === false){
+                texto.textContent++;
+                curtiu = true;
+            } else{
+                texto.textContent--;
+                curtiu = false;
+            }
+        }
+    })
+
+
 </script>
 
-</body>
 </html>
